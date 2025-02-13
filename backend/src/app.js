@@ -1,11 +1,17 @@
 //Importing express
 const express = require('express');
 
+
 // importing from routes folders to create aiRoute
-const aiRoutes = require('./routes/ai.routes')
+const aiRoutes = require('./routes/ai.routes');
+const cors = require('cors');
 
 //Transferring all the powers of express into app variable
 const app = express();
+
+//cors allowing frontend to access
+app.use(cors());
+
 
 //middleware
 app.use(express.json());
@@ -14,6 +20,10 @@ app.use(express.json());
 app.get('/', (req,res)=>{
     res.send("Hello World");
 })
+
+
+
+
 
 //Defining API Routes
 // basically means /ai will be served as a main route for all ai related requests
